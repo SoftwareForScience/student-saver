@@ -21,11 +21,17 @@ module.exports = {
         type: Sequelize.STRING
       },
       discount_requirements: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING
       },
-      score: {
-        allowNull: false,
+      upvotes: {
+        allowNull: true,
+        defaultValue: 0,
+        type: Sequelize.INTEGER
+      },
+      downvotes: {
+        allowNull: true,
+        defaultValue: 0,
         type: Sequelize.INTEGER
       },
       createdAt: {

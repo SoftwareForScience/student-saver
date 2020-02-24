@@ -7,7 +7,7 @@ const app = express();
 const port = 3000;
 
 const error_handler = (err, req, res, next) => {
-  res.status(500).send({ error: err });
+  res.status(500).send({error: err});
 };
 
 app.use(body_parser.json());
@@ -23,9 +23,32 @@ app.post('/sites', (req, res) => {
     url: req.body.url,
     description: req.body.description,
     discount_requirements: req.body.discount_requirements
-  }).then(() => {
-    res.status(201).json({});
+  }).then(site => {
+    res.status(201).json(site);
   }).catch(err => {
+    console.log(err);
+    res.status(400).send({error: err});
+  });
+});
+
+app.put('/sites/:id/upvote', (req, res) => {
+  models.Site.findOne({where: {id: req.params.id}}).then(site => {
+    return site.increment('upvotes', {by: 1});
+  }).then(site => {
+    res.status(200).json({});
+  }).catch(err => {
+    console.log(err);
+    res.status(400).send({error: err});
+  });
+});
+
+app.put('/sites/:id/downvote', (req, res) => {
+  models.Site.findOne({where: {id: req.params.id}}).then(site => {
+    return site.increment('downvotes', {by: 1});
+  }).then(site => {
+    res.status(200).json({});
+  }).catch(err => {
+    console.log(err);
     res.status(400).send({error: err});
   });
 });

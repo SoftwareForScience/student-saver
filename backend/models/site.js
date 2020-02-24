@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     url: DataTypes.STRING,
     description: DataTypes.STRING,
     discount_requirements: DataTypes.STRING,
-    score: DataTypes.INTEGER
+    upvotes: DataTypes.INTEGER,
+    downvotes: DataTypes.INTEGER
   }, {});
   Site.associate = function(models) {
     // associations can be defined here
