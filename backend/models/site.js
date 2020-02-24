@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Site = sequelize.define('Site', {
     site_name: DataTypes.STRING,
+    product_name: DataTypes.STRING,
     url: DataTypes.STRING,
     description: DataTypes.STRING,
     discount_requirements: DataTypes.STRING,

@@ -21,6 +21,7 @@ app.post('/sites', (req, res) => {
   models.Site.create({
     site_name: req.body.site_name,
     url: req.body.url,
+    product_name: req.body.product_name,
     description: req.body.description,
     discount_requirements: req.body.discount_requirements
   }).then(site => {

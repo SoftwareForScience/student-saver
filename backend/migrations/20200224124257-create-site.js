@@ -12,6 +12,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      product_name: {
+        allowNull: true,
+        type: Sequelize.STRING
+      },
       url: {
         allowNull: false,
         type: Sequelize.STRING
@@ -42,6 +46,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
+    }, {
+      timestamps: true
     });
   },
   down: (queryInterface, Sequelize) => {
