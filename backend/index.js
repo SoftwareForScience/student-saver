@@ -31,20 +31,9 @@ app.post('/sites', (req, res) => {
   });
 });
 
-app.put('/sites/:id/upvote', (req, res) => {
+app.put('/sites/:id/:action(upvote|downvote)', (req, res) => {
   models.Site.findOne({where: {id: req.params.id}}).then(site => {
-    return site.increment('upvotes', {by: 1});
-  }).then(site => {
-    res.status(200).json({});
-  }).catch(err => {
-    console.log(err);
-    res.status(400).send({error: err});
-  });
-});
-
-app.put('/sites/:id/downvote', (req, res) => {
-  models.Site.findOne({where: {id: req.params.id}}).then(site => {
-    return site.increment('downvotes', {by: 1});
+    return site.increment(req.params.action + 's', {by: 1});
   }).then(site => {
     res.status(200).json({});
   }).catch(err => {
