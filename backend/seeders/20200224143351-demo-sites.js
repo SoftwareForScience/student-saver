@@ -77,6 +77,17 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        site_name: 'GitHub',
+        product_name: 'GitHub Student Developer Pack',
+        url: 'https://education.github.com/pack',
+        description: 'Variate aan gratis development tools',
+        discount_requirements: 'Studenten e-mail',
+        upvotes: 50,
+        downvotes: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }
     ], {});
   },
 

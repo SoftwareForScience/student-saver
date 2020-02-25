@@ -13,8 +13,24 @@ const error_handler = (err, req, res, next) => {
 app.use(body_parser.json());
 app.use(error_handler);
 
+app.get('/sites/search', (req, res) => {
+  const query = req.query.query;
+  const limit = parseInt(req.query.limit, 10) || 50;
+
+  models.Site.findAll({
+    limit: limit,
+    where: {
+      [Sequelize.Op.or]: [
+        {site_name: {[Sequelize.Op.like]: `%${query}%`}},
+        {product_name: {[Sequelize.Op.like]: `%${query}%`}},
+        {url: {[Sequelize.Op.like]: `%${query}%`}}
+      ]
+    }
+  }).then(sites => res.json(sites));
+});
+
 app.get('/sites', (req, res) => {
-    models.Site.findAll().then(sites => res.json(sites));
+  models.Site.findAll().then(sites => res.json(sites));
 });
 
 app.post('/sites', (req, res) => {
@@ -34,7 +50,7 @@ app.post('/sites', (req, res) => {
 
 app.put('/sites/:id/:action(upvote|downvote)', (req, res) => {
   models.Site.findOne({where: {id: req.params.id}}).then(site => {
-    return site.increment(req.params.action + 's', {by: 1});
+    return site.increment(`${req.params.action}s`, {by: 1});
   }).then(site => {
     res.status(200).json({});
   }).catch(err => {
