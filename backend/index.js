@@ -2,6 +2,7 @@ const Sequelize = require('sequelize');
 const body_parser = require('body-parser')
 const express = require('express');
 const models = require('./models');
+const util = require('./util');
 
 const app = express();
 const port = 3000;
@@ -34,13 +35,7 @@ app.get('/sites', (req, res) => {
 });
 
 app.post('/sites', (req, res) => {
-  models.Site.create({
-    site_name: req.body.site_name,
-    url: req.body.url,
-    product_name: req.body.product_name,
-    description: req.body.description,
-    discount_requirements: req.body.discount_requirements
-  }).then(site => {
+  util.create_site(req.body).then(site => {
     res.status(201).json(site);
   }).catch(err => {
     console.log(err);
