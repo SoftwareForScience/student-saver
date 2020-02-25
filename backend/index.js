@@ -13,9 +13,23 @@ const error_handler = (err, req, res, next) => {
 
 app.use(body_parser.json());
 app.use(error_handler);
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Origin', req.headers.origin);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept'
+  );
+  if (req.method === 'OPTIONS') {
+    res.send(200);
+  } else {
+    next();
+  }
+});
 
 app.get('/sites/search', (req, res) => {
-  const query = req.query.query;
+  const query = decodeURI(req.query.query);
   const limit = parseInt(req.query.limit, 10) || 50;
 
   models.Site.findAll({
