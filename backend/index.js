@@ -59,7 +59,7 @@ app.post('/sites', (req, res) => {
 });
 
 app.put('/sites/:id/:action(upvote|downvote)', (req, res) => {
-  models.Site.findOne({where: {id: req.params.id}}).then(site => {
+  models.Site.findByPk(req.params.id).then(site => {
     return site.increment(`${req.params.action}s`, {by: 1});
   }).then(site => {
     res.status(200).json({});
@@ -70,7 +70,7 @@ app.put('/sites/:id/:action(upvote|downvote)', (req, res) => {
 });
 
 app.put('/sites/:id/:action(upvote|downvote)/revert', (req, res) => {
-  models.Site.findOne({where: {id: req.params.id}}).then(site => {
+  models.Site.findByPk(req.params.id).then(site => {
     return site.decrement(`${req.params.action}s`, {by: 1});
   }).then(site => {
     res.status(200).json({});
