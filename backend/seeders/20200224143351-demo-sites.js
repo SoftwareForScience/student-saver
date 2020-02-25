@@ -94,6 +94,18 @@ module.exports = {
         downvotes: 1,
         createdAt: new Date(),
         updatedAt: new Date()
+      },
+      {
+        site_name: 'Pathé',
+        product_name: 'Pathé Studentticket',
+        url: 'https://www.pathe.nl/producten/studenten-korting',
+        thumbnail: null,
+        description: 'Voor €9,- naar de film',
+        discount_requirements: 'Studenten- of CJP pas',
+        upvotes: 5,
+        downvotes: 0,
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ], {});
   },
