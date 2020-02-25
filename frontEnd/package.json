@@ -12,7 +12,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack src/index.js --output bin/app.js -d --watch"
+    "start": "webpack src/index.js --output bin/app.js -d --watch",
+    "build": "webpack src/index.js --output bin/app.js -p"
   },
   "keywords": [],
   "author": "",
