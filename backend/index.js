@@ -46,7 +46,12 @@ app.get('/sites/search', (req, res) => {
 });
 
 app.get('/sites', (req, res) => {
-  models.Site.findAll().then(sites => res.json(sites));
+  const limit = parseInt(req.query.limit, 10) || 50;
+
+  models.Site.findAll({
+    limit: limit,
+    order: [[Sequelize.literal('(upvotes - downvotes)'), 'ASC'], 'site_name', 'product_name']
+  }).then(sites => res.json(sites));
 });
 
 app.post('/sites', (req, res) => {
