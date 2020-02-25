@@ -68,4 +68,15 @@ app.put('/sites/:id/:action(upvote|downvote)', (req, res) => {
   });
 });
 
+app.put('/sites/:id/:action(upvote|downvote)/revert', (req, res) => {
+  models.Site.findOne({where: {id: req.params.id}}).then(site => {
+    return site.decrement(`${req.params.action}s`, {by: 1});
+  }).then(site => {
+    res.status(200).json({});
+  }).catch(err => {
+    console.log(err);
+    res.status(400).send({error: err});
+  });
+});
+
 app.listen(port, () => console.log(`Running on http://localhost:${port}`));
