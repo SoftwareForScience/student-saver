@@ -1,0 +1,12 @@
+FROM node:10
+WORKDIR C:\Users\Administrator\Desktop\backend
+COPY package*.json ./
+RUN npm install
+env DB_PORT 3309
+env DB_HOST
+env DB_PASSWORD 
+env DB_USER root
+env DB_NAME student_saver
+COPY . .
+EXPOSE 3000
+CMD [ "node", "index.js" ]
