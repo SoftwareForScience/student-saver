@@ -11,7 +11,7 @@ module.exports = {
             }, [
             m("img[src='images/logo.png']"),
             m("input.search-input", {type: "text", placeholder: "Zoek naar korting..."}),
-            m("button.search-button", {type: "submit"}, "Zoek")
+            m("button.search-button", {type: "submit"}, "🔍")
         ])
     }
 }
