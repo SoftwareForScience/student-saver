@@ -27,7 +27,8 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
+  background-image: url(images/loginbackground.svg);
+  background-attachment: fixed;
 }
 
 body {
@@ -136,6 +137,7 @@ main {
     border-radius: 30px 0px 0px 30px;
     padding-left: 1em;
     margin-top: 2em;
+    border: 0px solid black;
 }
 
 /*
@@ -145,6 +147,10 @@ main {
     height: 3rem;
     /* width: 4%; */
     border-radius: 0px 30px 30px 0px;
+    max-height: 100%;
+    border: 0px solid black;
+    transform: translateY(-1.4px);
+
 }
 
 .search-result {
@@ -153,4 +159,9 @@ main {
 
 .card {
   background: #262626 !important;
+}
+
+.material-icons { 
+    /* height: 74%; */
+    vertical-align: middle;
 }
