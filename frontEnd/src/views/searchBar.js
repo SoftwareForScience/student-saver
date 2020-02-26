@@ -9,8 +9,8 @@ module.exports = {
                     sites.loadList(e.srcElement.querySelector("input").value);
                 }
             }, [
-            m("input", {type: "text", placeholder: "Zoek naar korting..."}),
-            m("button", {type: "submit"}, "Zoek")
+            m("input.search-input", {type: "text", placeholder: "Zoek naar korting..."}),
+            m("button.search-button", {type: "submit"}, "Zoek")
         ])
     }
 }
