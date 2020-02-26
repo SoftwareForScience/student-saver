@@ -13,6 +13,18 @@ var sites = {
         })
     },
 
+    popular: [],
+    loadPopular: function() { 
+        return m.request({ 
+            method: "GET",
+            url: "https://api.schroeff.com/sites",
+        })
+        .then(function(result) { 
+            sites.popular = result;
+            console.log(sites.popular);
+        })
+    },
+
     newSite: {},
     add: function(site) {
         return m.request({ 
