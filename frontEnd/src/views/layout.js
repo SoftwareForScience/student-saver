@@ -2,6 +2,7 @@ var m = require("mithril")
 
 module.exports = {
     view: function (vnode) {
+        const route = m.route.get();
         return m("div.cover-container d-flex h-100 p-3 mx-auto flex-column", [
             m("header.masthead mb-auto", [
                 m("div.inner", [
