@@ -20,7 +20,7 @@ module.exports = {
         return m('div.card', [
           m(`img[src=${thumbnail}].card-img-top .coupon-thumbnail`),
           m('div.card-body', [
-            m(`a[href=${site.url}]`, m('h4.card-title', title)),
+           m(`a[href=${site.url}]`, m('h4.card-title', title)),
             m('p.card-text', site.description),
             requirements,
             m('div.card-footer', [
