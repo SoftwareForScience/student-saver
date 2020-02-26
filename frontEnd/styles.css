@@ -110,17 +110,27 @@ body {
   color: rgba(255, 255, 255, .5);
 }
 
+main {
+  width: 50%;
+  margin: 0 auto;
+}
+
 /*
  * Search bar
  */
-.search-bar { 
+.search-bar {
+}
+
+.search-bar img {
+  display: block;
+  margin: -15em auto 2em auto;
 }
 
 /*
  * Search input
  */
 .search-input { 
-    width: 40%;
+  width: 70%;
 }
 
 /*
