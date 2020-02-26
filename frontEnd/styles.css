@@ -26,7 +26,6 @@ a:hover {
 
 html,
 body {
-  height: 100%;
   background-image: url(images/loginbackground.svg);
   background-attachment: fixed;
 }
@@ -70,7 +69,7 @@ body {
 
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
+  border-bottom-color: rgba(223, 113, 22, .25);
 }
 
 .nav-masthead .nav-link + .nav-link {
@@ -79,7 +78,7 @@ body {
 
 .nav-masthead .active {
   color: #fff;
-  border-bottom-color: #fff;
+  border-bottom-color: rgb(223, 113, 22);
 }
 
 @media (min-width: 48em) {
@@ -150,11 +149,25 @@ main {
     max-height: 100%;
     border: 0px solid black;
     transform: translateY(-1.4px);
+    background-color: #DF7116;
+}
 
+.search-button:hover { 
+    background-color: rgb(184, 93, 19);
+    cursor: pointer
+
+}
+
+.search-button:active { 
+    background-color: rgb(255, 141, 47);
 }
 
 .search-result {
   margin-top: 2em;
+}
+
+input, button:focus {
+    outline-width: 0;
 }
 
 .card {
@@ -164,4 +177,5 @@ main {
 .material-icons { 
     /* height: 74%; */
     vertical-align: middle;
+    color: white;
 }
