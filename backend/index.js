@@ -34,7 +34,7 @@ app.get('/sites/search', (req, res) => {
 
   models.Site.findAll({
     limit: limit,
-    order: [[Sequelize.literal('(upvotes - downvotes)'), 'ASC'], 'site_name', 'product_name'],
+    order: [[Sequelize.literal('(upvotes - downvotes)'), 'DESC'], 'site_name', 'product_name'],
     where: {
       [Sequelize.Op.or]: [
         {site_name: {[Sequelize.Op.like]: `%${query}%`}},
@@ -50,7 +50,7 @@ app.get('/sites', (req, res) => {
 
   models.Site.findAll({
     limit: limit,
-    order: [[Sequelize.literal('(upvotes - downvotes)'), 'ASC'], 'site_name', 'product_name']
+    order: [[Sequelize.literal('(upvotes - downvotes)'), 'DESC'], 'site_name', 'product_name']
   }).then(sites => res.json(sites));
 });
 
