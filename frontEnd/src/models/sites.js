@@ -12,6 +12,17 @@ var sites = {
             console.log(sites.siteData);
         })
     },
+
+    newSite: {},
+    add: function(site) {
+        return m.request({ 
+            method: "POST",
+            url: "https://api.schroeff.com/sites",
+            body: site
+        }).then(function(result) { 
+            console.log(results);
+        })
+    }
 };
 
 module.exports = sites;

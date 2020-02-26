@@ -7,8 +7,8 @@ module.exports = {
                 m("div.inner", [
                     m("h3.masthead-brand", "Student Saver"),
                     m("nav.nav nav-masthead justify-content-center", [
-                        m("a.nav-link active", "Search"),
-                        m("a.nav-link", "Add")
+                        m(m.route.Link, {href: "/list", class: 'nav-link' + (route === "/list" ? ' active' : '')}, "Zoeken"),
+                        m(m.route.Link, {href: "/add", class: 'nav-link' + (route === "/add" ? ' active' : '')}, "Voeg korting toe")
                     ])
                 ])
             ]),
@@ -23,4 +23,4 @@ module.exports = {
 
         ])
     }
-}
+};
