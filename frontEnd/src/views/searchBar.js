@@ -9,7 +9,8 @@ module.exports = {
         sites.loadList(e.srcElement.querySelector("input").value);
       }
     }, [
-      m("img[src='images/logo.png']"),
+      m("img[src='images/logo.png'].student-saver-logo"),
+      m("p", "Zoek of je studentenkorting krijgt bij een website of product, of voeg zelf eentje toe."),
       m("input.search-input", {type: "text", placeholder: "Zoek naar korting..."}),
       m("button.search-button", {type: "submit"}, [
         m("i.material-icons", "search")
